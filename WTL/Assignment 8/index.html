@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student API</title>
+</head>
+<body>
+
+    <input type="text" placeholder="enter your name" autocomplete="on">
+    
+
+
+    <h2>Student List (GET Route)</h2>
+    <button onclick="loadStudents()">Load Students</button>
+    <pre id="output"></pre>
+
+    <script>
+        async function loadStudents() {
+            const res = await fetch('/students');
+            const data = await res.json();
+            document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>
